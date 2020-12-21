@@ -44,3 +44,9 @@ cactus_height = 47
 x1 = 800
 y1 = y
 cactus_array = []
+
+
+"""menu const"""
+distanse = 50
+full_col = 255
+null_col = 0
