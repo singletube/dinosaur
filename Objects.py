@@ -33,7 +33,6 @@ def win_actions():
     win.blit(day, (0, 0))
 
 
-
     update()
     if run_status:
         running_animation()
