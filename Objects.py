@@ -2,7 +2,7 @@ from pygame import *
 from settings import *
 from random import *
 
-
+day = bg_image_day
 
 class Enemies:
     def __init__(self, x, y, width, height):
@@ -20,8 +20,20 @@ class Enemies:
 
 
 def win_actions():
-    global win, run_status, pace
-    win.blit(bg_image, (0, 0))
+    global win, run_status, pace, day, day_ch
+    if day_ch % 1000 == 0:
+        if day == bg_image_day:
+            day = bg_image
+
+        else:
+            day = bg_image_day
+        day_ch += 1
+    else:
+        day_ch += 1
+    win.blit(day, (0, 0))
+
+
+
     update()
     if run_status:
         running_animation()
