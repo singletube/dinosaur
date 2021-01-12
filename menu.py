@@ -21,7 +21,7 @@ def dino_menu():
             pygame.draw.rect(screen, 'pink', (text_x, 200, 200, 70))
             font = pygame.font.Font('pixel font.ttf', 30)
             text = font.render(('Лучший счет:' + line), 1, (full_col, full_col, full_col))
-            screen.blit(text, (text_x // 2 - otstup, pos + otstup * 2))
+            screen.blit(text, (0, pos + otstup * 2))
             text = font.render('Начать', 1, (null_col, null_col, null_col))
             screen.blit(text, (text_x + 20, 220))
             font = pygame.font.Font('pixel font.ttf', 40)
@@ -45,11 +45,12 @@ def dino_menu():
         if pos > height // 8:
             pos -= 10
         time.Clock().tick(pace)
-        screen.blit(bg_image, (0, 0))
+        screen.blit(bg_image_night, (0, 0))
         draw()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+                raise SystemExit
             if event.type == pygame.MOUSEBUTTONUP:
                 if (width // 2 - distanse * 2) < event.pos[0] < (width // 2 + distanse * 4) and distanse * 4\
                         < event.pos[1] < 270:

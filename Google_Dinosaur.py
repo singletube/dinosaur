@@ -7,6 +7,8 @@ from menu import dino_menu
 from records import record_check
 
 
+
+
 init()
 if dino_menu():
     mixer.music.play(-1)
@@ -20,9 +22,8 @@ while True:
         if event_.type == QUIT:  # exit game
             record_check(score // 10)
             sys.exit(0)
-
-
     win_actions()
     time.Clock().tick(pace)
+
 
 

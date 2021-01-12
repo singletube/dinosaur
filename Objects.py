@@ -3,7 +3,7 @@ from settings import *
 from random import *
 import pygame
 
-day = bg_image_day
+
 
 class Enemies:
     def __init__(self, x, y, width, height):
@@ -22,9 +22,9 @@ class Enemies:
 
 def win_actions():
     global win, run_status, pace, day, day_ch
-    if day_ch % 500 == 0:
+    if day_ch % day_time == 0:
         if day == bg_image_day:
-            day = bg_image
+            day = bg_image_night
 
         else:
             day = bg_image_day
@@ -99,7 +99,7 @@ def generate_cactus_array(array):
     x = randint(70, 900)
     while n != 10:
         x1 = randint(70, 900)
-        if x1 in range(x + 30, x - 30):
+        if x1 in range(x - 30, x + 30):
             if x > 415:
                 x1 -= 50
             else:

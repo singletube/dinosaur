@@ -4,11 +4,14 @@ from pygame import *
 init()
 
 
+
+day_time = 500
 score = 0
 day_ch = 0
 size = (width, height) = (900, 350)  # windows' size
-bg_image = image.load('images/bg_image.png')
+bg_image_night = image.load('images/bg_image.png')
 bg_image_day = image.load('images/bg_image_day.png')
+day = bg_image_night
 loud = image.load('images/speaker.png')
 loud = transform.scale(loud, (50, 50))
 silent = image.load('images/speaker_off.png')
