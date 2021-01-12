@@ -4,6 +4,7 @@ from pygame import *
 init()
 
 
+score = 0
 day_ch = 0
 size = (width, height) = (900, 350)  # windows' size
 bg_image = image.load('images/bg_image.png')

@@ -21,7 +21,7 @@ class Enemies:
 
 def win_actions():
     global win, run_status, pace, day, day_ch
-    if day_ch % 1000 == 0:
+    if day_ch % 500 == 0:
         if day == bg_image_day:
             day = bg_image
 
