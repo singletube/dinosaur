@@ -20,7 +20,7 @@ class Enemies:
         win.blit(cactus_sprite, (self.x, self.y))
 
 
-def win_actions():
+def win_actions(score):
     global win, run_status, pace, day, day_ch
     if day_ch % day_time == 0:
         if day == bg_image_day:
@@ -33,7 +33,7 @@ def win_actions():
         day_ch += 1
     win.blit(day, (0, 0))
     font = pygame.font.Font('pixel font.ttf', 30)
-    text = font.render(('score:' + str(day_ch // 10)), 1, (255, 255, 255))
+    text = font.render(('score:' + str(score // 10)), 1, (255, 255, 255))
     win.blit(text, (650, 0))
 
 

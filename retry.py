@@ -9,6 +9,7 @@ from Objects import *
 def retry_menu(score):
     global pos, music
     def draw():
+        mixer.music.pause()
         with open('records.txt', 'r', encoding='UTF-8') as line:
             line = line.readline()
             screen.blit(exit_exe, (width - distanse, height - distanse))
@@ -38,12 +39,12 @@ def retry_menu(score):
         draw()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                running = False
                 raise SystemExit
             if event.type == pygame.MOUSEBUTTONUP:
                 if (width // 2 - distanse * 2) < event.pos[0] < (width // 2 + distanse * 4) and distanse * 4\
                         < event.pos[1] < 270:
-                   return True
+                    mixer.music.unpause()
+                    return
                 if width - distanse < event.pos[0] and height - distanse < event.pos[1]:
                     raise SystemExit
 

@@ -1,4 +1,5 @@
 from pygame import *
+import random
 
 
 init()
@@ -24,7 +25,10 @@ win = display.set_mode(size)
 pos = height
 music = True
 otstup = 35
-mixer.music.load('audio/Pixelizer.mp3')
+
+a = random.choice(['audio/Pixelizer.mp3', 'audio/Dance! .mp3', 'audio/Chiptune Your Head.mp3'])
+mixer.music.load(a)
+
 mixer.music.set_volume(0.1)
 jump_sound = mixer.Sound('audio/jump_sound.mp3')
 

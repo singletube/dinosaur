@@ -1,7 +1,3 @@
-import sys
-import time
-from pygame import *
-from settings import *
 from Objects import *
 from menu import dino_menu
 from records import record_check
@@ -13,7 +9,7 @@ from retry import retry_menu
 init()
 
 if dino_menu():
-    mixer.music.play(-1)
+    mixer.music.play()
 else:
     pass
 generate_cactus_array(cactus_array)
@@ -25,8 +21,10 @@ while True:
         if event_.type == QUIT:  # exit game
             record_check(score // 10)
             retry_menu(score // 10)
+            score = 0
 
-    win_actions()
+
+    win_actions(score)
     time.Clock().tick(pace)
 
 
