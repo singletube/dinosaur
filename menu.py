@@ -4,30 +4,38 @@ from Objects import *
 
 
 
+
 def dino_menu():
     global pos, music
     def draw():
-        if music:
-            screen.blit(loud, (width - distanse, height - distanse))
-        else:
-            screen.blit(silent, (width - distanse, height - distanse))
-        text_x = width // 2 - distanse * 2
-        pygame.draw.rect(screen, 'pink', (text_x, 200, 200, 70))
-        font = pygame.font.Font('pixel font.ttf', 30)
-        text = font.render(str('Начать'), 1, (null_col, null_col, null_col))
-        screen.blit(text, (text_x + 20, 220))
-        font = pygame.font.Font('pixel font.ttf', 40)
-        text = font.render(str('Google динозавр'), 1, (full_col, null_col, null_col))
-        text_x = width // 2 - text.get_width() // 2
-        screen.blit(text, (text_x, pos - otstup))
-        font = pygame.font.Font('pixel font.ttf', 40)
-        text = font.render(str('Добро пожаловать'), 1, (full_col, full_col, full_col))
-        text_x = width // 2 - text.get_width() // 2
-        screen.blit(text, (text_x, pos))
-        font = pygame.font.Font('pixel font.ttf', x)
-        text = font.render(str('Игра by Константин и Хаджимурад'), 1, (full_col, full_col, full_col))
-        text_x = width // 2 - text.get_width() // 2
-        screen.blit(text, (text_x, pos + otstup))
+        with open('records.txt', 'r', encoding='UTF-8') as line:
+            line = line.readline()
+
+
+
+            if music:
+                screen.blit(loud, (width - distanse, height - distanse))
+            else:
+                screen.blit(silent, (width - distanse, height - distanse))
+            text_x = width // 2 - distanse * 2
+            pygame.draw.rect(screen, 'pink', (text_x, 200, 200, 70))
+            font = pygame.font.Font('pixel font.ttf', 30)
+            text = font.render(('Лучший счет:' + line), 1, (full_col, full_col, full_col))
+            screen.blit(text, (text_x // 2 - otstup, pos + otstup * 2))
+            text = font.render('Начать', 1, (null_col, null_col, null_col))
+            screen.blit(text, (text_x + 20, 220))
+            font = pygame.font.Font('pixel font.ttf', 40)
+            text = font.render('Google динозавр', 1, (full_col, null_col, null_col))
+            text_x = width // 2 - text.get_width() // 2
+            screen.blit(text, (text_x, pos - otstup))
+            font = pygame.font.Font('pixel font.ttf', 40)
+            text = font.render('Добро пожаловать', 1, (full_col, full_col, full_col))
+            text_x = width // 2 - text.get_width() // 2
+            screen.blit(text, (text_x, pos))
+            font = pygame.font.Font('pixel font.ttf', x)
+            text = font.render('Игра by Константин и Хаджимурад', 1, (full_col, full_col, full_col))
+            text_x = width // 2 - text.get_width() // 2
+            screen.blit(text, (text_x, pos + otstup))
     pygame.init()
     pygame.display.set_caption('Запуск')
     size = width, height
