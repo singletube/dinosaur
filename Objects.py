@@ -37,6 +37,7 @@ def win_actions():
     win.blit(text, (650, 0))
 
 
+
     update()
     if run_status:
         running_animation()

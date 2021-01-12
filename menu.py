@@ -45,11 +45,10 @@ def dino_menu():
         if pos > height // 8:
             pos -= 10
         time.Clock().tick(pace)
-        screen.blit(bg_image_night, (0, 0))
+        screen.blit(menu_pic, (0, 0))
         draw()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                running = False
                 raise SystemExit
             if event.type == pygame.MOUSEBUTTONUP:
                 if (width // 2 - distanse * 2) < event.pos[0] < (width // 2 + distanse * 4) and distanse * 4\

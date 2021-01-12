@@ -11,6 +11,10 @@ day_ch = 0
 size = (width, height) = (900, 350)  # windows' size
 bg_image_night = image.load('images/bg_image.png')
 bg_image_day = image.load('images/bg_image_day.png')
+menu_pic = image.load('images/menu_pic.jpg')
+fail_pic = image.load('images/fail_pic.jpg')
+exit_exe = image.load('images/exit.png')
+exit_exe = transform.scale(exit_exe, (50, 50))
 day = bg_image_night
 loud = image.load('images/speaker.png')
 loud = transform.scale(loud, (50, 50))
