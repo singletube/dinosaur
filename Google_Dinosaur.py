@@ -5,6 +5,7 @@ from settings import *
 from Objects import *
 from menu import dino_menu
 from records import record_check
+from retry import retry_menu
 
 
 
@@ -23,7 +24,7 @@ while True:
     for event_ in event.get():
         if event_.type == QUIT:  # exit game
             record_check(score // 10)
-            raise SystemExit
+            retry_menu(score // 10)
 
     win_actions()
     time.Clock().tick(pace)

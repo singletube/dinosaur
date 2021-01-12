@@ -43,7 +43,7 @@ def retry_menu(score):
             if event.type == pygame.MOUSEBUTTONUP:
                 if (width // 2 - distanse * 2) < event.pos[0] < (width // 2 + distanse * 4) and distanse * 4\
                         < event.pos[1] < 270:
-                    pass
+                   return True
                 if width - distanse < event.pos[0] and height - distanse < event.pos[1]:
                     raise SystemExit
 
@@ -56,4 +56,3 @@ def retry_menu(score):
         time.Clock().tick(pace)
     pygame.quit()
 
-retry_menu(500)
