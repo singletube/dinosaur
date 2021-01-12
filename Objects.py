@@ -1,6 +1,7 @@
 from pygame import *
 from settings import *
 from random import *
+import pygame
 
 day = bg_image_day
 
@@ -31,6 +32,9 @@ def win_actions():
     else:
         day_ch += 1
     win.blit(day, (0, 0))
+    font = pygame.font.Font('pixel font.ttf', 30)
+    text = font.render(('score:' + str(day_ch // 10)), 1, (255, 255, 255))
+    win.blit(text, (650, 0))
 
 
     update()
