@@ -14,20 +14,21 @@ class Enemies:
 
     def cactus_spawn(self):
         if self.x >= -self.width:
-            self.x -= 3.5
+            self.x -= dino_speed
         else:
             self.x = 800
         win.blit(cactus_sprite, (self.x, self.y))
 
 
 def win_actions(score):
-    global win, run_status, pace, day, day_ch
+    global win, run_status, pace, day, day_ch, dino_speed
     if day_ch % day_time == 0:
         if day == bg_image_day:
             day = bg_image_night
-
+            dino_speed += 0.25
         else:
             day = bg_image_day
+            dino_speed += 0.25
         day_ch += 1
     else:
         day_ch += 1
@@ -97,15 +98,18 @@ def sneak_animation():
 
 def generate_cactus_array(array):
     n = 0
-    x = randint(70, 900)
-    while n != 10:
+    x = randint(10, 900)
+    while n != 5:
         x1 = randint(70, 900)
+        while abs(x - x1) < 100 and abs(x - x1) > 150:
+            x1 = randint(70, 900)
         if x1 in range(x - 30, x + 30):
             if x > 415:
                 x1 -= 50
             else:
                 x1 += 50
         array.append(Enemies(x1, y, cactus_width, cactus_height))
+        x = x1
         n += 1
 
 

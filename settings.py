@@ -9,6 +9,7 @@ init()
 day_time = 500
 score = 0
 day_ch = 0
+dino_speed = 1
 size = (width, height) = (900, 350)  # windows' size
 bg_image_night = image.load('images/bg_image.png')
 bg_image_day = image.load('images/bg_image_day.png')
