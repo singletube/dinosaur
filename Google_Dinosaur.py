@@ -20,6 +20,7 @@ pygame.display.set_caption('Играем')
 while True:
     pace += 0.01
     score += 1
+    """Функция выхода/проигрыша"""
     for event_ in event.get():
         if event_.type == QUIT:
             record_check(score // 10)
