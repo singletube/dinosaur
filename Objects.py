@@ -1,8 +1,8 @@
-from pygame import *
 from settings import *
 from random import *
 import pygame
 
+"""Главный класс врагов"""
 
 
 class Enemies:
@@ -12,12 +12,17 @@ class Enemies:
         self.width = width
         self.height = height
 
+    """Функция спауна кактусов"""
+
     def cactus_spawn(self):
         if self.x >= -self.width:
             self.x -= dino_speed
         else:
             self.x = 800
         win.blit(cactus_sprite, (self.x, self.y))
+
+
+"""Дневной цикл, показывание счета, увеличение скорости"""
 
 
 def win_actions(score):
@@ -37,13 +42,14 @@ def win_actions(score):
     text = font.render(('score:' + str(score // 10)), 1, (255, 255, 255))
     win.blit(text, (650, 0))
 
-
-
     update()
     if run_status:
         running_animation()
     show_cactus_array(cactus_array)
     display.flip()
+
+
+"""Функция прыжка"""
 
 
 def jump():
@@ -60,8 +66,11 @@ def jump():
     else:
         jump_index = 30
         jump_status = False
-    
-    
+
+
+"""Функция проверки действия пользователя"""
+
+
 def update():
     global jump_status, sneak_status, run_status
     keys = key.get_pressed()
@@ -78,6 +87,9 @@ def update():
         jump()
 
 
+"""Анимация бега динозавра"""
+
+
 def running_animation():
     global run_index, run_status, win
     if run_index >= 16:
@@ -87,6 +99,9 @@ def running_animation():
         run_index += 1
 
 
+"""Анимация приседания (Не реализованно)"""
+
+
 def sneak_animation():
     global sneak_status, sneak_index, run_status
     if sneak_index >= 16:
@@ -94,6 +109,9 @@ def sneak_animation():
     if y == height - dino_height - 25:
         win.blit(sneak_sprite[sneak_index // 8], (x, y))
         sneak_index += 1
+
+
+"""Алгаритм генерации кактусов"""
 
 
 def generate_cactus_array(array):
@@ -108,9 +126,15 @@ def generate_cactus_array(array):
                 x1 -= 50
             else:
                 x1 += 50
+
+        """Добавление врага(кактуса) в группу"""
+
         array.append(Enemies(x1, y, cactus_width, cactus_height))
         x = x1
         n += 1
+
+
+"""Отрисовка кактусов"""
 
 
 def show_cactus_array(array):

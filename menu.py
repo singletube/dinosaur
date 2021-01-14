@@ -1,17 +1,16 @@
-import pygame
-import settings
 from Objects import *
 
-
+"""Функция главного меню"""
 
 
 def dino_menu():
     global pos, music
+
+    """Отрисовка объектов"""
+
     def draw():
         with open('records.txt', 'r', encoding='UTF-8') as line:
             line = line.readline()
-
-
 
             if music:
                 screen.blit(loud, (width - distanse, height - distanse))
@@ -36,24 +35,40 @@ def dino_menu():
             text = font.render('Игра by Константин и Хаджимурад', 1, (full_col, full_col, full_col))
             text_x = width // 2 - text.get_width() // 2
             screen.blit(text, (text_x, pos + otstup))
+
     pygame.init()
     pygame.display.set_caption('Запуск')
     size = width, height
     screen = pygame.display.set_mode(size)
     running = True
+
+    """Гравный цикл меню"""
+
     while running:
         if pos > height // 8:
             pos -= 10
         time.Clock().tick(pace)
         screen.blit(menu_pic, (0, 0))
         draw()
+
+        """Проверка действий пользователя"""
+
         for event in pygame.event.get():
+
+            """Выход"""
+
             if event.type == pygame.QUIT:
                 raise SystemExit
             if event.type == pygame.MOUSEBUTTONUP:
-                if (width // 2 - distanse * 2) < event.pos[0] < (width // 2 + distanse * 4) and distanse * 4\
+
+                """Старт игры"""
+
+                if (width // 2 - distanse * 2) < event.pos[0] < (width // 2 + distanse * 4) and distanse * 4 \
                         < event.pos[1] < 270:
                     return music
+
+                """Включение / Отключение музыки"""
+
                 if width - distanse < event.pos[0] and height - distanse < event.pos[1]:
                     if music:
                         screen.blit(silent, (width - distanse, height - distanse))
@@ -61,9 +76,6 @@ def dino_menu():
                     else:
                         screen.blit(loud, (width - distanse, height - distanse))
                         music = True
-
-
-
 
         pygame.display.flip()
         time.Clock().tick(pace)
