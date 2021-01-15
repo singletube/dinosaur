@@ -15,8 +15,11 @@ class Enemies:
     """Функция спауна кактусов"""
 
     def cactus_spawn(self):
+        global x, y
         if self.x >= -self.width:
             self.x -= dino_speed
+            while self.x - x <= 20:
+                pass #доделать
         else:
             self.x = 800
         win.blit(cactus_sprite, (self.x, self.y))
@@ -115,23 +118,14 @@ def sneak_animation():
 
 
 def generate_cactus_array(array):
-    n = 0
-    x = randint(10, 900)
-    while n != 5:
-        x1 = randint(70, 900)
-        while abs(x - x1) < 100 and abs(x - x1) > 150:
-            x1 = randint(70, 900)
-        if x1 in range(x - 30, x + 30):
-            if x > 415:
-                x1 -= 50
-            else:
-                x1 += 50
+    for i in range(400, 2200, 200):
+        x1 = randint(i, i + 200)
 
         """Добавление врага(кактуса) в группу"""
 
         array.append(Enemies(x1, y, cactus_width, cactus_height))
-        x = x1
-        n += 1
+
+
 
 
 """Отрисовка кактусов"""

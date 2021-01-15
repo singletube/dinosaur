@@ -15,9 +15,11 @@ bg_image_day = image.load('images/bg_image_day.png')
 menu_pic = image.load('images/menu_pic.jpg')
 fail_pic = image.load('images/fail_pic.jpg')
 exit_exe = image.load('images/exit.png')
-run_sprite = [image.load('images/green dino/run_Animation1.png'), image.load('images/green dino/run_Animation2.png')]
+run_sprite = [image.load('images/green dino/run_Animation1.png'),
+              image.load('images/green dino/run_Animation2.png')]
 jump_sprite = image.load('images/green dino/dino.png')
-sneak_sprite = [image.load('images/green dino/sneak1.png'), image.load('images/green dino/sneak2.png')]
+sneak_sprite = [image.load('images/green dino/sneak1.png'),
+                image.load('images/green dino/sneak2.png')]
 sneaking_sprite = image.load('images/green dino/sneaking.png')
 lost_sprite = image.load('images/green dino/lost.png')
 dino = image.load('images/green dino/dino.png')
