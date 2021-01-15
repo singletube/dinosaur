@@ -33,8 +33,6 @@ class Enemies:
                 sprite.kill()
 
 
-
-
 """Дневной цикл, показывание счета, увеличение скорости"""
 
 
@@ -51,14 +49,23 @@ def win_actions(score):
     else:
         day_ch += 1
     win.blit(day, (0, 0))
+
+    """Отображение счета"""
+
     font = pygame.font.Font('pixel font.ttf', 30)
     text = font.render(('score:' + str(score // 10)), 1, (255, 255, 255))
     win.blit(text, (650, 0))
 
     update()
+
     if run_status:
         running_animation()
+
+        """Проверка на пригрыш"""
+
     if show_cactus_array(cactus_array) == -1:
+        """Обновление игры"""
+
         dino_speed = 1
         day_ch = 1
         pace = 0
@@ -123,7 +130,7 @@ def running_animation():
         run_index += 1
 
 
-"""Анимация приседания (Не реализованно)"""
+"""Анимация приседания"""
 
 
 def sneak_animation():
@@ -145,11 +152,6 @@ def generate_cactus_array(array):
         """Добавление врага(кактуса) в группу"""
 
         array.append(Enemies(x1, y, cactus_width, cactus_height))
-
-
-
-
-
 
 
 """Отрисовка кактусов"""

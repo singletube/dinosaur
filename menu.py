@@ -17,21 +17,36 @@ def dino_menu():
             else:
                 screen.blit(silent, (width - distanse, height - distanse))
             text_x = width // 2 - distanse * 2
+
+            """Лучший счет"""
+
             pygame.draw.rect(screen, 'pink', (text_x, 200, 200, 70))
             font = pygame.font.Font('pixel font.ttf', 30)
             text = font.render(('Лучший счет:' + line), 1, (full_col, full_col, full_col))
             screen.blit(text, (0, pos + otstup * 2))
+
+            """Кнопка начать"""
+
             text = font.render('Начать', 1, (null_col, null_col, null_col))
             screen.blit(text, (text_x + 20, 220))
             font = pygame.font.Font('pixel font.ttf', 40)
+
+            """Название игры"""
+
             text = font.render('Google динозавр', 1, (full_col, null_col, null_col))
             text_x = width // 2 - text.get_width() // 2
             screen.blit(text, (text_x, pos - otstup))
             font = pygame.font.Font('pixel font.ttf', 40)
+
+            """Добро пожаловать :)"""
+
             text = font.render('Добро пожаловать', 1, (full_col, full_col, full_col))
             text_x = width // 2 - text.get_width() // 2
             screen.blit(text, (text_x, pos))
             font = pygame.font.Font('pixel font.ttf', x)
+
+            """Титры"""
+
             text = font.render('Игра by Константин и Хаджимурад', 1, (full_col, full_col, full_col))
             text_x = width // 2 - text.get_width() // 2
             screen.blit(text, (text_x, pos + otstup))
@@ -76,6 +91,8 @@ def dino_menu():
                     else:
                         screen.blit(loud, (width - distanse, height - distanse))
                         music = True
+
+        """Обновление экрана"""
 
         pygame.display.flip()
         time.Clock().tick(pace)

@@ -39,7 +39,7 @@ jump_sound = mixer.Sound('audio/jump_sound.mp3')
 
 """Изменяемые параметры игры"""
 """Время длительности дня/ночи"""
-day_time = 500
+day_time = 1000
 
 """Начальная скорость"""
 dino_speed = 1

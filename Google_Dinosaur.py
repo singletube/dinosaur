@@ -28,10 +28,15 @@ while True:
             retry_menu(score // 10)
             score = 0
 
+    """Проверка на проигрыш"""
+
     if win_actions(score) == -1:
         record_check(score // 10)
         # Проверка на рекорд
         retry_menu(score // 10)
         score = 0
         init()
+
+        """Обновление экрана"""
+
     time.Clock().tick(pace)
