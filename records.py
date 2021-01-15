@@ -16,4 +16,4 @@ def record_check(record):
                                         ia, str(record)
         line = ' '.join(line)
     with open('records.txt', 'w', encoding='UTF-8') as li:
-        print(li.write(line))
+        li.write(line)
