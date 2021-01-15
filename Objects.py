@@ -18,18 +18,28 @@ class Enemies:
         global x, y
         if self.x >= -self.width:
             self.x -= dino_speed
-            if self.x - x <= 20:
-                pass #доделать
+            if self.x - x <= 20 and self.x - x >= 5:
+                if y != self.y:
+                    pass
+                else:
+                    return -1
         else:
             self.x = 800
         win.blit(cactus_sprite, (self.x, self.y))
+
+    def clear_by_class(self, cls):
+        for sprite in self:
+            if isinstance(sprite, cls):
+                sprite.kill()
+
+
 
 
 """Дневной цикл, показывание счета, увеличение скорости"""
 
 
 def win_actions(score):
-    global win, run_status, pace, day, day_ch, dino_speed
+    global win, run_status, pace, day, day_ch, dino_speed, cactus_array
     if day_ch % day_time == 0:
         if day == bg_image_day:
             day = bg_image_night
@@ -48,7 +58,14 @@ def win_actions(score):
     update()
     if run_status:
         running_animation()
-    show_cactus_array(cactus_array)
+    if show_cactus_array(cactus_array) == -1:
+        dino_speed = 1
+        day_ch = 1
+        pace = 0
+        cactus_array = []
+        generate_cactus_array(cactus_array)
+        return -1
+
     display.flip()
 
 
@@ -140,4 +157,5 @@ def generate_cactus_array(array):
 
 def show_cactus_array(array):
     for cactus in array:
-        cactus.cactus_spawn()
+        if cactus.cactus_spawn() == -1:
+            return -1
