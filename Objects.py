@@ -64,6 +64,7 @@ def win_actions(score):
         """Проверка на пригрыш"""
 
     if show_cactus_array(cactus_array) == -1:
+
         """Обновление игры"""
 
         dino_speed = 1

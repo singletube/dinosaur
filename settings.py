@@ -10,6 +10,7 @@ full_col = 255
 null_col = 0
 
 """Загрузка Изображений"""
+
 bg_image_night = image.load('images/bg_image.png')
 bg_image_day = image.load('images/bg_image_day.png')
 menu_pic = image.load('images/menu_pic.jpg')
@@ -38,21 +39,27 @@ a = random.choice(['audio/Pixelizer.mp3', 'audio/Dance! .mp3',
 jump_sound = mixer.Sound('audio/jump_sound.mp3')
 
 """Изменяемые параметры игры"""
+
 """Время длительности дня/ночи"""
+
 day_time = 1000
 
 """Начальная скорость"""
+
 dino_speed = 1
 
 """Параметры кактусов"""
+
 cactus_width = 38
 cactus_height = 47
 
 """Параметры динозавра"""
+
 dino_width = 42
 dino_height = 44
 
 """Громкость музыки"""
+
 mixer.music.set_volume(0.1)
 
 """Начальное время суток"""
@@ -60,6 +67,7 @@ mixer.music.set_volume(0.1)
 day = bg_image_night
 
 """Константы"""
+
 size = (width, height) = (900, 350)
 score = 0
 day_ch = 0
@@ -78,6 +86,7 @@ y1 = y
 otstup = 35
 
 """Настройка параметров"""
+
 mixer.music.load(a)
 exit_exe = transform.scale(exit_exe, (50, 50))
 loud = transform.scale(loud, (50, 50))
@@ -87,6 +96,7 @@ pos = height
 cactus_array = []
 
 """Включение/Выключение"""
+
 run_status = True
 sneak_status = False
 jump_status = False

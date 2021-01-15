@@ -11,6 +11,7 @@ else:
     pass
 
 """Проверка включения музыки в игре"""
+
 generate_cactus_array(cactus_array)
 
 pygame.display.set_caption('Играем')

@@ -63,6 +63,7 @@ def retry_menu(score):
             if event.type == pygame.QUIT:
                 raise SystemExit
             if event.type == pygame.MOUSEBUTTONUP:
+
                 """Рестарт игры"""
                 if (width // 2 - distanse * 2) < event.pos[0] < (width // 2 + distanse * 4) and distanse * 4 \
                         < event.pos[1] < 270:
