@@ -18,7 +18,7 @@ class Enemies:
         global x, y
         if self.x >= -self.width:
             self.x -= dino_speed
-            while self.x - x <= 20:
+            if self.x - x <= 20:
                 pass #доделать
         else:
             self.x = 800
@@ -61,13 +61,17 @@ def jump():
         win.blit(jump_sprite, (x, y))
     else:
         win.blit(sneaking_sprite, (x, y))
-    if jump_index >= -30:
+    if jump_index >= -30 and y <= 281:
         if jump_index == 30:
             mixer.Sound.play(jump_sound)
-        y -= jump_index / gravity
         jump_index -= 1
+        if sneak_status and jump_index <= 0:
+            y -= jump_index / (gravity / 3)
+        else:
+            y -= jump_index / gravity
     else:
         jump_index = 30
+        y = 281
         jump_status = False
 
 
@@ -124,6 +128,9 @@ def generate_cactus_array(array):
         """Добавление врага(кактуса) в группу"""
 
         array.append(Enemies(x1, y, cactus_width, cactus_height))
+
+
+
 
 
 
