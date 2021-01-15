@@ -72,6 +72,7 @@ def win_actions(score):
         pace = 0
         cactus_array = []
         generate_cactus_array(cactus_array)
+        day = bg_image_day
         return -1
 
     display.flip()
