@@ -24,7 +24,7 @@ class Enemies:
                 else:
                     return -1
         else:
-            self.x = 800
+            self.x = 2200
         win.blit(cactus_sprite, (self.x, self.y))
 
     def clear_by_class(self, cls):
