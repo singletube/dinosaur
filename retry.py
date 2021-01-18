@@ -29,7 +29,7 @@ def retry_menu(score):
 
             """Рестарт"""
 
-            text = font.render('Заного', 1, (null_col, null_col, null_col))
+            text = font.render('Заново', 1, (null_col, null_col, null_col))
             screen.blit(text, (text_x + 20, 220))
 
             """Вы проиграли"""
