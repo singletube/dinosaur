@@ -47,7 +47,7 @@ def dino_menu():
 
             """Титры"""
 
-            text = font.render('Игра by Константин и Хаджимурад', 1, (full_col, full_col, full_col))
+            text = font.render('Игра by Константин', 1, (full_col, full_col, full_col))
             text_x = width // 2 - text.get_width() // 2
             screen.blit(text, (text_x, pos + otstup))
 
